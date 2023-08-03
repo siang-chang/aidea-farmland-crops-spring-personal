@@ -12,7 +12,7 @@
 - `utils` 存放公用程式
 - `efficientnet_classifier.ipynb` 多類別的深度學習模型程式，這次競賽的主要模型
 - `efficientnet_gbm_classifier.ipynb` 多類別的深度學習模型 + GBM 程式，前期的實驗模型
-- `xgb_ensemble_classifier.ipynb` 集成模型的程式
+- `ensemble_xgb_classifier.ipynb` 集成模型的程式
 
 # Method
 
@@ -53,7 +53,26 @@
 
 模型使用 EfficientNet 在 Keras 上基於 ImageNet 之預訓練模型作為特徵擷取器，模型的 Dropout 比例為 20%，預訓練模型的權重僅作為模型初始權重，訓練過程中允許調整，並依序接上 1 層 GlobalAveragePooling2D、1 層 BatchNormalization、1 層比例為 20% 的 Dropout、1 層有 20 個節點的全連結層及 1 層有 14 個節點的全連接層作為分類層，模型架構如下所示：
 
-
+```python
+def get_model(input_shape, num_classes, dropout=0.2):
+    inputs = tf.keras.layers.Input(shape=input_shape)
+    model = tf.keras.applications.EfficientNetB6(include_top=False, weights='imagenet', input_tensor=inputs)
+    
+     # Freeze the pretrained weights
+    model.trainable = True
+    
+     # Rebuild top
+    x = tf.keras.layers.GlobalAveragePooling2D(name="avg_pool")(model.output)
+    x = tf.keras.layers.BatchNormalization()(x)
+    x = tf.keras.layers.Dropout(dropout, name="top_dropout")(x)
+    x = tf.keras.layers.Dense(256, activation='relu', kernel_initializer=tf.keras.initializers.he_uniform(seed=None))(x)
+    outputs = tf.keras.layers.Dense(units=num_classes, activation='softmax', kernel_initializer=tf.keras.initializers.he_uniform(seed=None), name="pred")(x)
+    
+    # Compile
+    model = tf.keras.models.Model(inputs=inputs, outputs=outputs, name="EfficientNet")
+    model.compile(optimizer=tf.keras.optimizers.Adam(lr=1e-4), loss='categorical_crossentropy', metrics=['categorical_accuracy'])
+    return model
+```
 
 訓練過程中，採用 Categorical Cross Entropy 作為 Loss Function；此外，若 Loss 在持續 10 個 Epoch 內沒有下降，就將 Learning Rate 設為當前的 0.31 倍，若 Loss 在持續 20 個 Epoch 內沒有下降，就停止訓練；訓練結束後，會將訓練階段在驗證集擁有最佳表現之 Epoch 的權重作為模型的最終權重，模型的其餘參數包括：
 
