@@ -27,26 +27,3 @@
 | 2022/5/25 23:59 | 截止上傳報告及程式碼，開始評估(程式碼 + 報告) |
 | 2022/6/17 14:00 | 公布最終結果                                  |
 | Mar-23          | 頒獎典禮 (暫定)                               |
-
-## Predictions on testset
-
-| method         | prediction link                                                                                                           |
-| :------------- | ------------------------------------------------------------------------------------------------------------------------- |
-| DCNN(DOY)      | [link.pkl](./src/outputs/fullset/dcnn-doy-3-conv12-heuniform-adam-labelsmoothing-classweight-test.pkl)                    |
-| DCNN(DOY, Sig) | [link](./src/outputs/fullset/dcnn-doy-1-sigmoid-conv12-heuniform-l2norm-adam-labelsmoothing-classweight-test.pkl)         |
-| DCNN(w/o DOY)  | [link](./src/outputs/fullset/dcnn-doy-sod-3-conv14-heuniform-adam-labelsmoothing-classweight-test.pkl)                    |
-| DCNN(DOY, SOD) | [link](./src/outputs/fullset/dcnn-conv14-heuniform-adam-labelsmoothing-classweight-test.pkl)                              |
-| ViT            | [link](./src/outputs/fullset/vision-transformer-result-test.pkl)                                                          |
-| EfficientNetB6 | [link](./src/outputs/fullset/efficientnetb6-transfer-trainable-epochs150-batchsize64-lrreducer-sampleweight-224-test.pkl) |
-| EfficientNetB3 | [link](./src/outputs/fullset/efficientnetb3-transfer-trainable-epochs150-batchsize32-lrreducer-sampleweight-224-test.pkl) |
-
-## Predictions on fullset
-
-| method         |  score | prediction link                                                                                                            |
-| :------------- | -----: | :------------------------------------------------------------------------------------------------------------------------- |
-| DCNN(DOY)      | 0.9776 | [link.pkl](./src/outputs/fullset/dcnn-doy-3-conv12-heuniform-adam-labelsmoothing-classweight-train.pkl)                    |
-| DCNN(DOY, Sig) | 0.9750 | [link](./src/outputs/fullset/dcnn-doy-1-sigmoid-conv12-heuniform-l2norm-adam-labelsmoothing-classweight-train.pkl)         |
-| DCNN(w/o DOY)  | 0.9757 | [link](./src/outputs/fullset/dcnn-doy-sod-3-conv14-heuniform-adam-labelsmoothing-classweight-train.pkl)                    |
-| ViT            | 0.9805 | [link](./src/outputs/fullset/vision-transformer-result-train.pkl)                                                          |
-| EfficientNetB6 | 0.9782 | [link](./src/outputs/fullset/efficientnetb6-transfer-trainable-epochs150-batchsize64-lrreducer-sampleweight-224-train.pkl) |
-| EfficientNetB3 | 0.9842 | [link](./src/outputs/fullset/efficientnetb3-transfer-trainable-epochs150-batchsize32-lrreducer-sampleweight-224-train.pkl) |

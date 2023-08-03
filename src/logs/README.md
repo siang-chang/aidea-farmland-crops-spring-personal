@@ -267,14 +267,14 @@ Dataset: [describe_train_fullset_valid_test.csv](../../data/describe_train_fulls
 
 Evaluation Result (weighted precision of each model)
 
-| method           | precision: valid (100%) | precision: test of valid (20%) |
-| :--------------- | ----------------------: | -----------------------------: |
-| EfficientNetB3   |                  0.9842 |                         0.9836 |
-| EfficientNetB6   |                  0.9783 |                         0.9803 |
-| ViT              |                  0.9806 |                         0.9784 |
-| DCNN(w/o DOY)    |                  0.9757 |                         0.9742 |
-| DCNN(DOY)        |                  0.9776 |                         0.9766 |
-| DCNN(DOYSigmoid) |                  0.9750 |                         0.9773 |
+| method           | precision: valid (100%) | precision: test of valid (20%) | fullset |testset|
+| :--------------- | ----------------------: | -----------------------------: | ------- |-|
+| EfficientNetB3   |                  0.9842 |                         0.9836 |[link](./src/outputs/fullset/efficientnetb3-transfer-trainable-epochs150-batchsize32-lrreducer-sampleweight-224-train.pkl)|[link](./src/outputs/fullset/efficientnetb3-transfer-trainable-epochs150-batchsize32-lrreducer-sampleweight-224-test.pkl)|
+| EfficientNetB6   |                  0.9783 |                         0.9803 |[link](./src/outputs/fullset/efficientnetb6-transfer-trainable-epochs150-batchsize64-lrreducer-sampleweight-224-train.pkl)|[link](./src/outputs/fullset/efficientnetb6-transfer-trainable-epochs150-batchsize64-lrreducer-sampleweight-224-test.pkl)|
+| ViT              |                  0.9806 |                         0.9784 |[link](./src/outputs/fullset/vision-transformer-result-train.pkl)|[link](./src/outputs/fullset/vision-transformer-result-test.pkl)|
+| DCNN(w/o DOY)    |                  0.9757 |                         0.9742 |[link](./src/outputs/fullset/dcnn-doy-sod-3-conv14-heuniform-adam-labelsmoothing-classweight-train.pkl)|[link](./src/outputs/fullset/dcnn-doy-sod-3-conv14-heuniform-adam-labelsmoothing-classweight-test.pkl)|
+| DCNN(DOY)        |                  0.9776 |                         0.9766 |[link](./src/outputs/fullset/dcnn-doy-3-conv12-heuniform-adam-labelsmoothing-classweight-train.pkl)|[link](./src/outputs/fullset/dcnn-doy-3-conv12-heuniform-adam-labelsmoothing-classweight-test.pkl)|
+| DCNN(DOY, Sigmoid) |                  0.9750 |                         0.9773 |[link](./src/outputs/fullset/dcnn-doy-1-sigmoid-conv12-heuniform-l2norm-adam-labelsmoothing-classweight-train.pkl)|[link](./src/outputs/fullset/dcnn-doy-1-sigmoid-conv12-heuniform-l2norm-adam-labelsmoothing-classweight-test.pkl)|
 
 Evaluation Result (weighted precision of ensemble)
 
