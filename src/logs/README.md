@@ -4,7 +4,7 @@
 
 在這個階段，使用全部資料集的 20% 進行小規模快速實驗，再以其中 15% 的測試（Testing）資料集績效作為方法好壞的評估基準，績效評量指標是 Weighted Precision
 
-## SVM + VGG16
+## Transfer Learning: SVM + VGG16
 
 Dataset: [describe_train_subset.csv](../../data/describe_train_subset.csv)
 
@@ -20,7 +20,7 @@ Evaluation result
 
 VGG16 Pre-Training-Model: [vgg16_weights_tf_dim_ordering_tf_kernels.h5](https://github.com/fchollet/deep-learning-models/releases/download/v0.1/vgg16_weights_tf_dim_ordering_tf_kernels.h5)
 
-## LightGBM + VGG19/EfficientNet
+## Transfer Learning: LightGBM + VGG19/EfficientNet
 
 Dataset: [describe_train_subset.csv](../../data/describe_train_subset.csv)
 
@@ -81,7 +81,7 @@ Evaluation result
 }
 ```
 
-## EfficientNet, Transfer Learning
+## Transfer Learning: EfficientNet
 
 | item | level | trainable | epochs | batch |  lr  | dropout | precision |
 | ---- | ----- | --------- | :----: | ----- | :--: | :-----: | :-------: |
