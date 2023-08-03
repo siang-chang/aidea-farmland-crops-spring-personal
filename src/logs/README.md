@@ -207,7 +207,7 @@ Evaluation Result (ensemble + DOYT)
 | ---- | ----- | :----: | ----- | :--: | :-----: | ------------- | :-------: |
 | [^4] | B0    |  150   | 32    | 1e-4 |   0.2   | true          | 0.965507  |
 
-[^4]: efficientnetb0-transfer-trainable-fullset1of3-epochs150-batchsize32-dropout20-sampleweight-224,efficientnetb0-transfer-trainable-fullset2of3-epochs150-batchsize32-dropout20-sampleweight-224,efficientnetb0-transfer-trainable-fullset3of3-epochs150-batchsize32-dropout20-sampleweight-224
+[^4]: efficientnetb0-transfer-trainable-fullset{n}of3-epochs150-batchsize32-dropout20-sampleweight-224
 
 首先重現在 Training 階段的最佳實驗結果，得到 96.55% 的 Weighted Precision，較 Training 階段的 93.31% 有顯著提升
 
